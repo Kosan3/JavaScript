@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var logo = document.getElementById('logo');
-  var attrs = logo.attributes;
-  for (var i = 0, len = attrs.length; i < len; i++) {
-    var attr = attrs.item(i);
-    console.log(attr);
-  }
+  var btn = document.getElementById('btn');
+  var onoff = document.getElementById('onoff');
+  btn.addEventListener('click', function() {
+    if (onoff.checked) {
+      console.log(onoff.value);
+    } else {
+      console.log('チェックされていません');
+    }
+  }, false);
 }, false);
