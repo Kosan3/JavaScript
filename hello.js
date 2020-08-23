@@ -1,7 +1,8 @@
-for (var i = 1; i < 10; i++) {
-  for (var j = 1; j < 10; j++) {
-    var k = i * j;
-    document.write(k + '&nbsp');
-  }
-  document.write('<br />');
+var i = 1;
+try {
+  i *= j;
+} catch (error) {
+  console.log(error.message);
+} finally {
+  document.write('処理を完了しました。');
 }
