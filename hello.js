@@ -1,13 +1,7 @@
-function fizzBuzz(x) {
-  if (x % 15 === 0) {
-    return console.log('Fizz Buzz');
-  } else if (x % 3 === 0) {
-    return console.log('Fizz');
-  } else if (x % 5 === 0) {
-    return console.log('Buzz');
-  } else {
-    console.log(x);
+for (var i = 1; i < 10; i++) {
+  for (var j = 1; j < 10; j++) {
+    var k = i * j;
+    document.write(k + '&nbsp');
   }
+  document.write('<br />');
 }
-
-fizzBuzz(433);
