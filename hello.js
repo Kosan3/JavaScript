@@ -1,9 +1,12 @@
-function sum(...nums) {
-  let result = 0;
-  for (let num of nums) {
-    result += num;
-  }
-  return result;
+function arrayWalk(data,f) {
+  for (var key in data) {
+    f(data[key], key);  // function showElement(0, 1) {
+  }                     //   console.log(0 + ':' + 1);
+}                       // }
+
+function showElement(value,key) {
+  console.log(key + ':' + value);
 }
 
-console.log(sum(3,5,1,5,6));
+var ary = [1,2,4,8,16];
+arrayWalk(ary, showElement);
