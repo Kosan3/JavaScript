@@ -1,12 +1,20 @@
-function arrayWalk(data,f) {
-  for (var key in data) {
-    f(data[key], key);  // function showElement(0, 1) {
-  }                     //   console.log(0 + ':' + 1);
-}                       // }
-
-function showElement(value,key) {
-  console.log(key + ':' + value);
+function escapeHtml(str) {
+  if (!str) {
+    return '';
+  }
+  str = str.replace(/&/g, '&amp;');
+  str = str.replace(/</g, '&lt;');
+  str = str.replace(/>/g, '&gt;');
+  return str;
 }
 
-var ary = [1,2,4,8,16];
-arrayWalk(ary, showElement);
+function e(templates, ...values) {
+  let result = '';
+  for (let i = 0, len = templates.length; i < len; i++) {
+    result += templates[i] + escapeHtml(values[i]); // templates = `こんにちは、${name}さん！`
+  }
+  return result;
+}
+
+let name = '<"小坂と上野">'
+console.log(e(`こんにちは、${name}さん!`));
