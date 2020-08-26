@@ -1,17 +1,38 @@
-var Area = function() {};
+var Triangle = function() {
+  var _base;
+  var _height;
+  var checkArgs = function(val) {
+    return (typeof val === 'number' && val > 0);
+  }
 
-Area.version = 1.0;
+  this.setBase = function(base) {
+    if (checkArgs(base)) {
+      _base = base;
+    }
+  }
+  this.getBase = function() {
+    return _base;
+  }
 
-Area.triangle = function(base, height) {
-  return base * height /2;
-};
+  this.setHeight = function(height) {
+    if (checkArgs(height)) {
+      _height = height;
+    }
+  }
+  this.getHeight = function() {
+    return _height;
+  }
+}
 
-Area.diamond = function(width, height) {
-  return width * height /2;
-};
+Triangle.prototype.getArea = function() {
+  return this.getBase() * this.getHeight() / 2;
+}
 
-console.log(Area.version);
-console.log(Area.triangle(5,3));
+var t = new Triangle();
+t._base = 10;
+t._height = 2;
+console.log(t.getArea());
 
-var a = new Area();
-console.log(a.diamond(3,5));
+t.setBase(10);
+t.setHeight(2);
+console.log(t.getArea());
