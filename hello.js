@@ -1,15 +1,17 @@
-function closure(init) {
-  var counter = init;
+var Area = function() {};
 
-  return function() {
-    return ++counter;
-  }
-}
+Area.version = 1.0;
 
-var myClosure1 = closure(1);
-var myClosure2 = closure(100);
+Area.triangle = function(base, height) {
+  return base * height /2;
+};
 
-console.log(myClosure1());
-console.log(myClosure2());
-console.log(myClosure1());
-console.log(myClosure2());
+Area.diamond = function(width, height) {
+  return width * height /2;
+};
+
+console.log(Area.version);
+console.log(Area.triangle(5,3));
+
+var a = new Area();
+console.log(a.diamond(3,5));
