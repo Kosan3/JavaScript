@@ -1,17 +1,21 @@
-function namespace(ns) {
-  var names = ns.split('.'); //['Wings.Gihyo.Js.MyApp']
-  var parent = window;
-  console.log(parent);
-
-  for (var i = 0, len = names.length; i < len; i++) {
-    parent[names[i]] = parent[names[i]] || {};
-    parent = parent[names[i]];
+class MyIterator {
+  constructor(data) {
+    this.data = data;
   }
-  return parent;
+
+  [Symbol.iterator]() {
+    let current = 0;
+    let that = this;
+    return {
+      next() {
+        return current < that.data.length ? {value: that.data[current++], done: false} : {done: true};
+      }
+    };
+  }
 }
 
-var my = namespace('Wings.Gihyo.Js.MyApp');
-my.Person = function() {};
-var p = new my.Person();
-console.log(p instanceof Wings.Gihyo.Js.MyApp.Person);
-console.log(parent);
+var ary = [0,1,2,3,4,5];
+var i2 = 0;
+for (var i = 0, len = ary.length; i < len; i++) {
+  console.log(ary[i2++]);
+}
