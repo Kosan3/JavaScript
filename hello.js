@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn').addEventListener('click', function() {
-    window.alert('ボタンがくりっくされました。 ');
+    var name = document.getElementById('name');
+    var result = document.getElementById('result');
+    result.innerHTML = 'こんにちは、' + name.value + 'さん！';
   }, false);
 }, false);

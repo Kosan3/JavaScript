@@ -5,7 +5,12 @@
   <title>JavaScript本格入門</title>
 </head>
 <body>
-  <input id="btn" type="button" value="ダイアログ表示">
+  <form>
+    <label for="name">名前:</label>
+    <input id="name" name="name" type="text" size="30">
+    <input id="btn" type="button" value="送信">
+  </form>
+  <div id="result"></div>
 
   <script src="hello.js"></script>
   <!-- <noscript>JavaScriptが使用できません</noscript> -->
