@@ -1,10 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("file").addEventListener('change', function(e) {
-    var input = document.getElementById('file').files[0];
-    var reader = new FileReader();
-    reader.addEventListener('load', function() {
-      document.getElementById('resul').textContent = reader.result;
-    }, true);
-    reader.readAsText(input, 'UTF-8');
-  }, true);
+  var list = document.getElementById('list');
+  var del = document.getElementById('del');
+  var result = document.getElementById('result');
+
+  list.addEventListener('click', function(e) {
+      var isbn = e.target.getAttribute('data-isbn');
+      if (isbn) {
+      var img = document.createElement('img');
+      img.src = 'http://www.wings.msn.to/books/' + isbn + '/' + isbn + '.jpg';
+      img.alt = e.target.textContent;
+      img.height = 180;
+      img.width = 100;
+      if (result.getElementsByTagName('img').length > 0) {
+        result.replaceChild(img, result.firstChild);
+      } else {
+        result.appendChild(img);
+        del.disabled = false;
+      }
+    }
+  });
+  del.addEventListener('click', function() {
+    if (result.getElementsByTagName('img').length > 0) {
+      result.removeChild(result.firstChild);
+      del.disabled = true;
+    }
+  });
 });
+
