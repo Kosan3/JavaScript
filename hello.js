@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let list = document.getElementById('list');
   let del = document.getElementById('del');
   let result = document.getElementById('result');
-  list.addEventListener('click', function(e) {
+  list.addEventListener('mouseover', function(e) {
     let target = e.target;
     let data = target.getAttribute('data-isbn');
     if (data) {
