@@ -1,14 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-  let Counter = function(elem) {
-    this.count = 0;
-    this.elem = elem;
-    elem.addEventListener('click', () => {
-      this.count++;
-      this.show();
-    });
-  };
-  Counter.prototype.show = function() {
-    console.log(this.elem.id + this.count + '回クリック');
-  }
-  let c = new Counter(document.getElementById('btn'));
-})
+var storage = localStorage;
+storage.first = 'first';
+storage.second = 'second';
+storage.therd = 'therd';
+for (var i = 0, len = storage.length; i < len; i++) {
+  var key = storage.key(i);
+  console.log(storage.getItem(key));
+}
